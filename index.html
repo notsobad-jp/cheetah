@@ -10,6 +10,15 @@ recognition.lang = 'en';
 // recognition.lang = 'ja';
 
 // 録音終了時トリガー
+recognition.onerror = function (event) {
+    console.log("onerror");
+    console.log(event);
+}
+recognition.onresult = function (event) {
+    console.log("onresult");
+    console.log(event);
+}
+
 recognition.addEventListener('result', function(event){
     console.log("finished");
     console.log(event.results);
@@ -20,7 +29,8 @@ recognition.addEventListener('result', function(event){
 // 録音開始
 function record()
 {
-    recognition.start();
+  recognition.start();
+  console.log("start");
 }
 </script>
 </head>

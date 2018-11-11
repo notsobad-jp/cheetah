@@ -7,6 +7,7 @@
 window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 var recognition = new webkitSpeechRecognition();
 recognition.lang = 'en';
+console.log(recognition);
 // recognition.lang = 'ja';
 
 // 録音終了時トリガー
@@ -18,6 +19,19 @@ recognition.onresult = function (event) {
     console.log("onresult");
     console.log(event);
 }
+recognition.onaudioend = function() {
+  console.log('Audio capturing ended');
+}
+recognition.onaudiostart = function() {
+  console.log('Audio capturing started');
+}
+recognition.onend = function() {
+  console.log('Speech recognition service disconnected');
+}
+recognition.onnomatch = function() {
+  console.log('Speech not recognised');
+}
+
 
 recognition.addEventListener('result', function(event){
     console.log("finished");

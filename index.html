@@ -6,10 +6,13 @@
 <script>
 window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 var recognition = new webkitSpeechRecognition();
-recognition.lang = 'ja';
+recognition.lang = 'en';
+// recognition.lang = 'ja';
 
 // 録音終了時トリガー
 recognition.addEventListener('result', function(event){
+    console.log("finished");
+    console.log(event.results);
     var text = event.results.item(0).item(0).transcript;
     $("#result_text").val(text);
 }, false);

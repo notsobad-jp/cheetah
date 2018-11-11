@@ -1,0 +1,46 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Web Speech API</title>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+  var noticeBox = document.createElement('pre');
+  document.body.appendChild(noticeBox);
+  noticeBox.placeholder = '入力結果';
+  noticeBox.contentEditable = true;
+  noticeBox.style.position = 'fixed';
+  noticeBox.style.top = '10px';
+  noticeBox.style.right = '10px';
+  noticeBox.style.width = '250px';
+  noticeBox.style.minHeight = '50px';
+  noticeBox.style.transition = '.2s';
+  noticeBox.style.zIndex = 99999;
+
+  var r = new webkitSpeechRecognition();
+  r.addEventListener('start', function() {
+  	noticeBox.style.background = 'rgba(255,100,100,.8)';
+  });
+  r.addEventListener('end', function() {
+  	noticeBox.style.background = 'rgba(200,200,200,.8)';
+  });
+  r.addEventListener('result', function(e) {
+  	console.log(e);
+  	if(e.results.length) {
+  		var results = e.results[0];
+  		if(results.isFinal) {
+  			noticeBox.textContent = 'fixed!!\n' + results[0].transcript;
+  		} else {
+  			var possiblity = [].slice.call(results).map(function(result, i) { return i + ':' + result.transcript; }).join('\n\n');
+  			noticeBox.textContent = 'progress('+results.length+')...\n' + possiblity;
+  		}
+  	} else {
+  		noticeBox.textContent = '結果が空です';
+  	}
+  });
+
+  r.lang = 'ja-JP';
+  r.continuous = true;
+  r.interimResults = true;
+  r.maxAlternatives = 3;
+  r.start();
+</script>

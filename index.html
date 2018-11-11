@@ -1,59 +1,13 @@
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Web Speech API</title>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script>
-window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-var recognition = new webkitSpeechRecognition();
-recognition.lang = 'en';
-console.log(recognition);
-// recognition.lang = 'ja';
-
-// 録音終了時トリガー
-recognition.onerror = function (event) {
-    console.log("onerror");
-    console.log(event);
-}
-recognition.onresult = function (event) {
-    console.log("onresult");
-    console.log(event);
-}
-recognition.onaudioend = function() {
-  console.log('Audio capturing ended');
-}
-recognition.onaudiostart = function() {
-  console.log('Audio capturing started');
-}
-recognition.onend = function() {
-  console.log('Speech recognition service disconnected');
-}
-recognition.onnomatch = function() {
-  console.log('Speech not recognised');
-}
-
-
-recognition.addEventListener('result', function(event){
-    console.log("finished");
-    console.log(event.results);
-    var text = event.results.item(0).item(0).transcript;
-    $("#result_text").val(text);
-}, false);
-
-// 録音開始
-function record()
-{
-  recognition.start();
-  console.log("start");
-}
-</script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>百人一首チーター</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.3/semantic.min.css">
+  <script type="text/javascript" src="application.js"></script>
 </head>
-
 <body>
-
-<textarea id="result_text" cols="100" rows="10">
-</textarea>
-<br />
-<input type="button" onClick="record()" value="録音開始" />
+  
 </body>
 </html>

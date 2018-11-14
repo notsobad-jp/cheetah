@@ -6,8 +6,22 @@
   <title>百人一首チーター</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.3/semantic.min.css">
   <script type="text/javascript" src="application.js"></script>
+  <script type="text/javascript" src="levenshtein.js"></script>
 </head>
 <body>
-  
+  <div class="ui container">
+    <h1>音声認識するよ</h1>
+    <button id="start" class="ui red button">
+      <i class="icon record"></i>
+      START
+    </button>
+    <button id="stop" class="ui black basic button">
+      <i class="icon pause"></i>
+      STOP
+    </button>
+    <div id="result" class="ui segment"></div>
+    <div class="ui divider"></div>
+    <div id="suggestion" class="ui list"></div>
+  </div>
 </body>
 </html>

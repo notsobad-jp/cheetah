@@ -6,21 +6,54 @@
   <title>チート | 百人一首チーター</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.3/semantic.min.css">
   <script type="text/javascript" src="./application.js"></script>
+  <style media="screen">
+    .ui.container { margin-top: 50px; }
+    #suggestion  .item:first-child { color: red; }
+    .loader { z-index: 100 !important; }
+    .hidden { display: none; }
+  </style>
 </head>
 <body>
+  <header class="ui top fixed borderless menu">
+    <a href="/" class="ui small header item">百人一首チーター</a>
+  </header>
+
   <div class="ui container">
-    <h1>音声認識するよ</h1>
-    <button id="start" class="ui red button">
-      <i class="icon record"></i>
-      START
-    </button>
-    <button id="stop" class="ui black basic button">
-      <i class="icon pause"></i>
-      STOP
-    </button>
-    <div id="result" class="ui segment"></div>
-    <div class="ui divider"></div>
-    <div id="suggestion" class="ui list"></div>
+    <div class="ui basic segment">
+      <div id="status">
+        音声認識中...
+        <i class="ui active inline small loader"></i>
+      </div>
+      <br>
+      <button id="stop" class="ui black basic small button">
+        <i class="icon pause"></i>
+        STOP
+      </button>
+      <button id="start" class="ui red small disabled button">
+        <i class="icon record"></i>
+        START
+      </button>
+    </div>
+
+    <div class="ui basic segment">
+      <div class="ui horizontal divider">
+        認識結果
+      </div>
+      <div id="ui items">
+        <div class="item" id="result"></div>
+      </div>
+    </div>
+
+    <div class="ui basic segment">
+      <div class="ui horizontal divider">
+        判定結果
+      </div>
+      <div id="suggestion" class="ui very relaxed items">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

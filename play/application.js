@@ -6,7 +6,6 @@ fetch(url).then(function(response) {
   data = json;
 });
 
-
 document.addEventListener('DOMContentLoaded', function(){
   var result = document.getElementById('result');
   var suggestion = document.getElementById('suggestion');
@@ -14,35 +13,37 @@ document.addEventListener('DOMContentLoaded', function(){
   r.lang = 'ja-JP';
   r.continuous = true;
   r.interimResults = true;
+  r.start();
 
   r.onresult = function(e) {
     for (var i = e.resultIndex; i < e.results.length; ++i) {
       var str = e.results[i][0].transcript;
-      result.innerText = str;
+      result.innerText = str + '...';
 
-      if(str.length > 4) {
-        var filteredData = getNearest(str);
-        suggestion.textContent = null;
-        for(var j=0; j<1; j++) {
-          var li = document.createElement("li");
-          var textNode = document.createTextNode(filteredData[j].bodyKanji);
-          li.appendChild(textNode);
-          suggestion.appendChild(li);
-        }
+      var filteredData = getSuggestions(str);
+      for(var j=0; j<3; j++) {
+        var item = suggestion.children[j];
+        item.innerText = filteredData[j].bodyKanji;
       }
     }
   }
 
   document.getElementById('start').addEventListener('click', function(){
     r.start();
+    document.getElementById('stop').classList.toggle('disabled');
+    document.getElementById('start').classList.toggle('disabled');
+    document.getElementById('status').classList.toggle('hidden');
   });
   document.getElementById('stop').addEventListener('click', function(){
     r.stop();
+    document.getElementById('stop').classList.toggle('disabled');
+    document.getElementById('start').classList.toggle('disabled');
+    document.getElementById('status').classList.toggle('hidden');
   });
 }, false);
 
 
-function getNearest(text) {
+function getSuggestions(text) {
   var filteredData = data.sort(function(a,b){
     var scoreA = 0;
     var scoreB = 0;

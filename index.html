@@ -5,23 +5,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>百人一首チーター</title>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.3/semantic.min.css">
-  <script type="text/javascript" src="application.js"></script>
-  <script type="text/javascript" src="levenshtein.js"></script>
+  <style media="screen">
+    #top {
+      background-image: url('img/ichimatsu.png');
+      margin: 0;
+    }
+    .ui.attached.segment { border: none !important; }
+    .mt-0 { margin-top: 0 !important; }
+    .ichimatsu {
+      height: 45px;
+      width: 100%;
+      background-color: #fff;
+      background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+      linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+    .sub.header { margin-top: 10px !important; }
+    footer {
+      padding: 50px 0 !important;
+    }
+  </style>
 </head>
 <body>
-  <div class="ui container">
-    <h1>音声認識するよ</h1>
-    <button id="start" class="ui red button">
-      <i class="icon record"></i>
-      START
-    </button>
-    <button id="stop" class="ui black basic button">
-      <i class="icon pause"></i>
-      STOP
-    </button>
-    <div id="result" class="ui segment"></div>
-    <div class="ui divider"></div>
-    <div id="suggestion" class="ui list"></div>
+  <div id="top" class="ui basic center aligned padded segment">
+    <h1 class="ui small left floated header">百人一首チーター</h1>
+    <br><br>
+    <br><br>
+    <img class="ui centered medium image" src="img/cheetah.png" alt="">
+    <br>
+    <div class="ui huge header">
+      誰よりも速く、誰よりもズルく。
+      <div class="sub header">
+        百人一首チーターは、百人一首の詠み上げを音声認識して
+        <br class="pc only">
+        いち早く正解を教えてくれるチートツールです。
+      </div>
+    </div>
+    <br>
+    <a class="ui red large right labeled icon button" href="/play">
+      <i class="icon play"></i>
+      チート開始
+    </a>
+    <br><br>
   </div>
+
+  <div class="ichimatsu"></div>
+
+  <div class="ui basic secondary center aligned segment mt-0">
+    <p class="ui small header">
+      💩 2018年
+      <a href="#" target="_blank">クソアプリアドベントカレンダー</a>
+      参加作品 💩
+    </p>
+  </div>
+  <br>
+
+  <div class="ui centered stackable grid">
+    <div class="row">
+      <div class="ten wide column">
+        <div class="ui error icon message">
+          <i class="icon exclamation triangle"></i>
+          <div class="content">
+            <div class="header">
+              本サービスはジョークツールです
+            </div>
+            <p>
+              このサービスを利用した結果に対して一切責任は負いません。
+              用法用量を守って正しくお使いください。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="ten wide column">
+        <div class="ui horizontal divider">
+          <i class="icon video"></i>
+          デモ動画
+        </div>
+        <div class="ui embed" data-source="youtube" data-id="O6Xo21L0ybE" data-placeholder="/images/image-16by9.png"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="ten wide column">
+        <div class="ui horizontal divider">
+          <i class="icon help circle"></i>
+          使い方
+        </div>
+        <div class="ui two doubling cards">
+          <div class="ui card">
+            <div class="image">
+            </div>
+            <div class="content">
+              <div class="header">
+                ① 音声認識を開始する
+              </div>
+              <p>
+                チート開始ボタンを押すと、自動的に音声認識が開始します。
+              </p>
+            </div>
+          </div>
+          <div class="ui card">
+            <div class="image">
+            </div>
+            <div class="content">
+              <div class="header">
+                ② 判定結果をもとに札をさがす
+              </div>
+              <p>
+                音声認識の結果を元に、正解と思われる句を表示します。あとは札を取るだけです！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+  <br><br>
+
+  <div class="ichimatsu"></div>
+
+  <footer class="ui inverted basic attached center aligned segment mt-0">
+    <h5 class="ui small inverted header">
+      百人一首チーター
+      <small class="sub header">Copyright 2018 All rights reserved.</small>
+    </h5>
+  </footer>
 </body>
 </html>

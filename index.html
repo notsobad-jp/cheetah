@@ -25,6 +25,9 @@
     footer {
       padding: 50px 0 !important;
     }
+    .youtube iframe{
+      width: 100%;
+    }
 
     .mobile.only { display: none; }
     @media screen and (max-width: 750px) {
@@ -90,12 +93,15 @@
     </div>
 
     <div class="row">
-      <div class="ten wide column">
+      <div class="ten wide center aligned column">
         <div class="ui horizontal divider">
           <i class="icon video"></i>
           デモ動画
+          <small>(音が出ます)</small>
         </div>
-        <div class="ui embed" data-source="youtube" data-id="O6Xo21L0ybE" data-placeholder="/images/image-16by9.png"></div>
+        <div class="youtube">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/w3aSj6FSnRk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
 

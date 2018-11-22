@@ -21,8 +21,10 @@
   <div class="ui container">
     <div class="ui basic segment">
       <div id="status">
-        音声認識中...
-        <i class="ui active inline small loader"></i>
+        <div id="result" class="ui secondary segment">
+          音声認識中...
+          <i class="ui active inline small loader"></i>
+        </div>
       </div>
       <br>
       <button id="stop" class="ui black basic small button">
@@ -37,21 +39,12 @@
 
     <div class="ui basic segment">
       <div class="ui horizontal divider">
-        認識結果
+        ▼判定結果▼
       </div>
-      <div id="ui items">
-        <div class="item" id="result"></div>
-      </div>
-    </div>
-
-    <div class="ui basic segment">
-      <div class="ui horizontal divider">
-        判定結果
-      </div>
-      <div id="suggestion" class="ui very relaxed items">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+      <div id="suggestion" class="ui very relaxed divided items">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
       </div>
     </div>
   </div>

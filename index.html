@@ -25,6 +25,12 @@
     footer {
       padding: 50px 0 !important;
     }
+
+    .mobile.only { display: none; }
+    @media screen and (max-width: 750px) {
+      .pc.only { display: none; }
+      .mobile.only { display: block; }
+    }
   </style>
 </head>
 <body>
@@ -35,7 +41,9 @@
     <img class="ui centered medium image" src="img/cheetah.png" alt="">
     <br>
     <div class="ui huge header">
-      誰よりも速く、誰よりもズルく。
+      誰よりも速く、
+      <br class="mobile only">
+      誰よりもズルく。
       <div class="sub header">
         百人一首チーターは、百人一首の詠み上げを音声認識して
         <br class="pc only">
@@ -73,7 +81,7 @@
               本サービスはジョークツールです
             </div>
             <p>
-              このサービスを利用した結果に対して一切責任は負いません。
+              このサービスを利用した結果に対して一切責任は負えません。
               用法用量を守って正しくお使いください。
             </p>
           </div>

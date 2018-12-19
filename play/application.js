@@ -9,7 +9,11 @@ fetch(url).then(function(response) {
 document.addEventListener('DOMContentLoaded', function(){
   var result = document.getElementById('result');
   var suggestion = document.getElementById('suggestion');
-  var r = new webkitSpeechRecognition();
+  try {
+    var r = new webkitSpeechRecognition();
+  } catch(e) {
+    alert('ブラウザが音声認識に対応していないようです。。AndroidかPCのChromeでお試しください')
+  }
   r.lang = 'ja-JP';
   r.continuous = true;
   r.interimResults = true;
